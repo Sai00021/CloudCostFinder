@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leak Finder v4 | Enterprise FinOps Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              slate: {
+                950: '#020617',
+              },
+              blue: {
+                500: '#3b82f6',
+                600: '#2563eb',
+              }
+            },
+            boxShadow: {
+              'premium': '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05)',
+              '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
+              '4xl': '0 50px 100px -20px rgba(0, 0, 0, 0.4)',
+              'glow-blue': '0 0 20px rgba(59, 130, 246, 0.3)',
+            },
+            animation: {
+              'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 8s ease-in-out infinite',
+              'spin-slow': 'spin 12s linear infinite',
+              'liquid': 'liquid 20s infinite alternate',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0) scale(1)' },
+                '50%': { transform: 'translateY(-20px) scale(1.02)' },
+              },
+              liquid: {
+                '0%': { transform: 'translate(0, 0) scale(1) rotate(0deg)' },
+                '33%': { transform: 'translate(30px, -50px) scale(1.1) rotate(120deg)' },
+                '66%': { transform: 'translate(-20px, 20px) scale(0.9) rotate(240deg)' },
+                '100%': { transform: 'translate(0, 0) scale(1) rotate(360deg)' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
+      
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+      }
+
+      .light .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4);
+      }
+
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #334155;
+        border-radius: 10px;
+      }
+      .light ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+      }
+      
+      .bg-grain {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noiseFilter'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3%3C/filter%3%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3%3C/svg%3%3E");
+        opacity: 0.04;
+        pointer-events: none;
+        mix-blend-mode: overlay;
+      }
+
+      .text-glow {
+        text-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+      }
+
+      .shimmer {
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+        background-size: 200% 100%;
+        animation: shimmer 2.5s infinite;
+      }
+
+      @keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "recharts": "https://esm.sh/recharts@^3.6.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 h-screen overflow-hidden selection:bg-blue-600 selection:text-white transition-colors duration-500">
+    <!-- Enhanced Noise Overlay -->
+    <div class="fixed inset-0 bg-grain z-[999] opacity-[0.03]"></div>
+    
+    <!-- Animated Mesh Gradient Background -->
+    <div class="fixed inset-0 overflow-hidden z-0 pointer-events-none">
+        <div class="absolute top-[-25%] left-[-10%] w-[70%] h-[70%] bg-blue-600/10 rounded-full blur-[120px] animate-liquid"></div>
+        <div class="absolute bottom-[-15%] right-[-10%] w-[55%] h-[55%] bg-indigo-600/10 rounded-full blur-[100px] animate-liquid [animation-delay:4s]"></div>
+        <div class="absolute top-[30%] right-[-5%] w-[40%] h-[40%] bg-emerald-600/10 rounded-full blur-[80px] animate-liquid [animation-delay:8s]"></div>
+    </div>
+
+    <div id="root" class="h-full relative z-10"></div>
+</body>
+</html>

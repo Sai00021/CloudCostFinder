@@ -1,0 +1,9 @@
+{
+  "name": "Cloud Cost Leak Finder Platinum",
+  "description": "An AI-powered dashboard that identifies idle virtual machines, unused storage, and over-provisioned cloud resources. Enhanced with Multi-modal AI Intelligence Suite including Live Audio, Video Generation, and Grounded Reasoning.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
